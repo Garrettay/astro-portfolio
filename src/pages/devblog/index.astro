@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DevLogEntry from "../../components/DevLogEntry.astro";
+
+const entries = [
+  {
+    title: "Engine Bootstrap and File Structure",
+    date: "2025-01-10",
+    content:
+      "Set up initial project structure, bootstrapping logic, and verified file system paths.",
+    image: "/images/devlog/bootstrap.png",
+  },
+  {
+    title: "Content Pipeline Design Decisions",
+    date: "2025-01-08",
+    content:
+      "Outlined metadata-driven content packs and load ordering for mods.",
+  },
+];
+---
+
+<BaseLayout title="Dev Log">
+  <h1>Development Log</h1>
+
+  {entries.map(entry => (
+    <DevLogEntry {...entry} />
+  ))}
+</BaseLayout>
