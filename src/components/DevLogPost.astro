@@ -1,0 +1,43 @@
+---
+interface DevLogFrontmatter {
+  title: string;
+  date: string;
+  tags: string[];
+  image?: string;
+}
+
+const {
+  title,
+  date,
+  tags,
+  image
+} = Astro.props.frontmatter as DevLogFrontmatter;
+---
+
+<article class="devlog-post">
+  <header class="devlog-header">
+    <h2>{title}</h2>
+
+    <time datetime={date} class="devlog-date">
+      {date}
+    </time>
+
+    <div class="devlog-tags">
+      {tags.map(tag => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+  </header>
+
+  <p>DEBUG IMAGE: {image}</p>
+
+  {image && (
+    <figure class="devlog-image">
+      <img src={image} alt={title} />
+    </figure>
+  )}
+
+  <div class="devlog-body">
+    <slot />
+  </div>
+</article>

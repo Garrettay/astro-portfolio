@@ -68,3 +68,22 @@ body {
   text-align: center;
   color: #aaa;
 }
+.devlog-list a {
+  color: #b8c8ff; /* soft blue */
+}
+
+.devlog-list a:hover {
+  color: #ffffff;
+}
+.devlog-entry h2 a {
+  color: #e0e0e0;        /* readable on dark background */
+  text-decoration: none;
+}
+
+.devlog-entry h2 a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.tags .tag:not(:last-child)::after {
+  content: ", ";
+}

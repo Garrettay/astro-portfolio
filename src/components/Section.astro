@@ -1,0 +1,11 @@
+---
+const { title, image } = Astro.props;
+---
+
+<section class="devlog-section">
+  <h2>{title}</h2>
+  <div class="section-body">
+    <slot />
+    {image && <img src={image} />}
+  </div>
+</section>
