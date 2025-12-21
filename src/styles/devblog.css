@@ -84,3 +84,38 @@
   font-size: 0.9rem;
   opacity: 0.75;
 }
+.devlog-section {
+  margin-bottom: 3rem;
+}
+
+.section-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+.section-text {
+  max-width: 65ch;
+}
+
+.section-image img {
+  max-width: 320px;
+  border-radius: 6px;
+}
+@media (max-width: 768px) {
+  .section-body {
+    grid-template-columns: 1fr;
+  }
+
+  .section-image {
+    margin-top: 1rem;
+  }
+}
+.devlog-section.reverse .section-body {
+  grid-template-columns: auto 1fr;
+}
+
+.devlog-section.reverse .section-image {
+  order: -1;
+}

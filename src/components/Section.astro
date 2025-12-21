@@ -4,8 +4,16 @@ const { title, image } = Astro.props;
 
 <section class="devlog-section">
   <h2>{title}</h2>
+
   <div class="section-body">
-    <slot />
-    {image && <img src={image} />}
+    <div class="section-text">
+      <slot />
+    </div>
+
+    {image && (
+      <div class="section-image">
+        <img src={image} alt={title} />
+      </div>
+    )}
   </div>
 </section>

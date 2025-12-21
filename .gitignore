@@ -28,3 +28,5 @@ Thumbs.db
 
 # VS Code settings (optional)
 .vscode/
+# Devlog drafts (local only)
+src/content/drafts/

@@ -1,0 +1,49 @@
+---
+title: "2DGameEngine : Architecture"
+date: 2025-12-20
+tags:
+  - architecture
+  - engine
+---
+import Section from "../../components/Section.astro";
+
+<Section
+  title="Architecture Goals">
+  The engine is structured around a strict separation of responsibilities
+  between Project Specifics, Project Agnostics, and the runtime Lifecycle.
+
+  This allows individial systems to evolve independently while remaining composable and reusable across multiple projects.
+  Project specific systems can be built on top of, or indepent of Library agnostic systems, the CoreLibrary enforces this strictly by sealing non-extensable systems.
+</Section>
+<Section
+  title="Technical Over View">
+  *The three layers of this engine are connected through inheritance(or a "is-a" relationship)
+  GameEngine inherits Core, Core inherits Game. This results in three classes making up one engine.
+  GameEngine is the driving force, while Core has access to MonoGame objects like the Microsoft.XNA.Framework.ContentManager(loading/unloading) and Microsoft.Xna.FrameWork.SpriteBatch(rendering)
+  This means that GameEngine has access to what Core Exposes, and Core has access to what Game exposes.
+  Additionally Core follows a singleton pattern, creating a instance of its self on construction, in order to expose its properties to its systems
+  (ex, User interface needs current resolution? query Cores intrinsic ScreenInfo property)
+  While that static instance of core exposes its public properties, it does not expose its logic/methods,
+  those are protected by design. The protected methods of GameEngine and Core mirror the lifecycle control within the MonoGame Framework
+  this means that when the game is running, any calls that are part of the life cycle pass through all three layers*
+</Section>
+
+<Section title="Three-Layer Model"   image="/astro-portfolio//images/game-core-engine.png">
+  The engine is divided into three primary layers:
+
+  - **GameEngine/Project Layer**
+  - **Core/Library Layer**
+  - **MonoGame/Runtime Contract**
+</Section>
+
+<Section
+  title="Why This Matters"
+>
+  - **Each layer has explicit ownership boundaries and purpose**
+
+    This keep the Core reusable while ensuring long-term maintenance is manageable.
+
+  - **Each layer inherits and extends the MonoGame lifecycle**
+
+  This means each layer is doing the same thing at the same time, but within different scopes.
+</Section>
