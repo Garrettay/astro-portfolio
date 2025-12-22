@@ -87,3 +87,9 @@ body {
 .tags .tag:not(:last-child)::after {
   content: ", ";
 }
+
+
+.section-image img {
+  max-width: 50%;
+
+}

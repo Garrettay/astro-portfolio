@@ -1,0 +1,39 @@
+---
+title: "2DGameLibrary : User Interface"
+date: 2025-12-20
+tags:
+  - UI
+  - Library
+---
+import Section from "../../components/Section.astro";
+
+<Section
+  title="Elements">
+  UI Elements are composed into a parent child structure, all Elements inherit from a base class providing all their shared functionality,
+  and allowing for polymophic structuring.
+  Elements include:
+    - Text
+    - Image
+    - Button
+    - Panel
+    - TextInput
+    - ScollPanel
+    - VerticalGroup
+    - HorizontalGroup
+    - GridGroup
+    - View
+</Section>
+<Section
+  title="Layouts">
+  A UI Layout is defined in xml because xml is ideal for structured data.
+  Layouts define everything about ui elements aside from their local actions.
+</Section>
+<Section title="Views" image="/astro-portfolio//images/ui-diagram.png">
+  A views primary resource is its layout, which it consumes in order to build its substructure of elements.
+  Views can be set full screen or limited to a specified size.
+
+  If a sub element is using anchor positioning changing view scale will update its position keeping itself aligned with its anchor.
+  Views provide lookup into their lineage structure, so when they are composed by project specific systems they can find elements by id, in order to manipulate predefined ui dynamically, for purposes like setting local actions to buttons, or populating scrollviews with dynamic content.
+
+  Since a view inherits from Element they can be stacked on top of each other. This allows sub views to be found and distributed to sub systems, while maintaining their predefined structure relative to their parent when anchored.
+</Section>

@@ -10,11 +10,12 @@ import Section from "../../components/Section.astro";
 <Section
   title="Architecture Goals">
   The engine is structured around a strict separation of responsibilities
-  between Project Specifics, Project Agnostics, and the runtime Lifecycle.
+  between Project Layer, Library Layer.
 
-  This allows individial systems to evolve independently while remaining composable and reusable across multiple projects.
-  Project specific systems can be built on top of, or indepent of Library agnostic systems, the CoreLibrary enforces this strictly by sealing non-extensable systems.
+  This allows individual systems to evolve independently while remaining composable and reusable across multiple projects.
+  Project specific systems can be built on top of, or independent of Library agnostic systems, the CoreLibrary enforces this strictly by sealing non-extensable systems.
 </Section>
+
 <Section
   title="Technical Over View">
   *The three layers of this engine are connected through inheritance(or a "is-a" relationship)
@@ -41,7 +42,7 @@ import Section from "../../components/Section.astro";
 >
   - **Each layer has explicit ownership boundaries and purpose**
 
-    This keep the Core reusable while ensuring long-term maintenance is manageable.
+    This keeps the Core reusable while ensuring long-term maintenance is manageable.
 
   - **Each layer inherits and extends the MonoGame lifecycle**
 
