@@ -27,13 +27,19 @@ import Section from "../../components/Section.astro";
   title="Layouts">
   A UI Layout is defined in xml because xml is ideal for structured data.
   Layouts define everything about ui elements aside from their local actions.
+  Layouts are parsed by a factory.
 </Section>
 <Section title="Views" image="/astro-portfolio//images/ui-diagram.png">
-  A views primary resource is its layout, which it consumes in order to build its substructure of elements.
-  Views can be set full screen or limited to a specified size.
-
-  If a sub element is using anchor positioning changing view scale will update its position keeping itself aligned with its anchor.
-  Views provide lookup into their lineage structure, so when they are composed by project specific systems they can find elements by id, in order to manipulate predefined ui dynamically, for purposes like setting local actions to buttons, or populating scrollviews with dynamic content.
-
-  Since a view inherits from Element they can be stacked on top of each other. This allows sub views to be found and distributed to sub systems, while maintaining their predefined structure relative to their parent when anchored.
+  A View’s primary resource is its layout.
+  A View consumes a layout definition to construct a fixed substructure of UI elements, forming a self-contained interface hierarchy.
+  Views may be configured as full-screen or constrained to a specific size. When a View is scaled, any sub-element using anchor-based 
+  positioning automatically adjusts its position to maintain alignment relative to its anchor.
+  Because a View inherits from Element, it participates fully in the element hierarchy. Views can be stacked, nested, and positioned 
+  relative to one another while preserving their internal structure.
+  Views expose lookup access to their lineage, allowing composed or project-specific systems to reference elements by identifier. 
+  This enables predefined UI structures to be manipulated at runtime—for example:
+  - **Assigning local actions to buttons**
+  - **Populating scroll views with dynamic content**
+  - **Updating text, state, or visibility without reconstructing the layout**
+  This approach keeps UI structure declarative and stable, while allowing behavior and data to be injected dynamically by higher-level systems.
 </Section>
